@@ -2,6 +2,10 @@
 
 set -e
 
+if [ "x$ES_PLUGINS" != x ] ; then
+    plugin -install $ES_PLUGINS
+fi
+
 # Add elasticsearch as command if needed
 if [ "${1:0:1}" = '-' ]; then
 	set -- elasticsearch "$@"
